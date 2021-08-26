@@ -3,15 +3,16 @@
 
 #include <stdbool.h>
 
-typedef struct BagNode
+typedef struct bag_node_t
 {
     void *data;
-    struct bagnode *next;
+    struct bag_node_t *next;
 } BagNode;
 
-typedef struct Bag
+typedef struct bag_t
 {
     BagNode *head;
+    BagNode *tail;
     BagNode *current;
     int size;
 } Bag;
@@ -38,8 +39,9 @@ void bag_destroy(Bag *bag);
 
 /**
  * Add an item to a bag
+ * @param data must be dynamically allocated
 */
-bool bag_add_item(Bag *bag, void *data);
+bool bag_add(Bag *bag, void *data);
 
 /**
  * Get the number of items in a bag
@@ -47,9 +49,14 @@ bool bag_add_item(Bag *bag, void *data);
 int size(Bag *bag);
 
 /**
+ * Iterates through the bag until current is NULL
+*/
+bool bag_iterate(Bag *bag);
+
+/**
  * Print bag
 */
-void bag_print(Bag *bag, void (*printfunc)(void *item));
+char **bag_print(Bag *bag);
 
 #endif
 
