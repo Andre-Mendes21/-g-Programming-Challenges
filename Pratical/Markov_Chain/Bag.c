@@ -46,7 +46,6 @@ void bag_destroy(Bag *bag)
     {
         next_bag_node = bag->current->next;
         free(bag->current->data);
-        printf("%d Freed\n", i++);
         free(bag->current);
         bag->current = next_bag_node;
     }
@@ -113,14 +112,14 @@ char **bag_print(Bag *bag)
         output = malloc(sizeof(char *) * bag->size);
 
         output[0] = malloc(strlen(string) + 1);
-        output[0] = string;
+        strcpy(output[0], string);
 
         unsigned i = 1;
         while(bag_iterate(bag))
         {
             string = (char *) bag->current->data;
             output[i] = malloc(strlen(string) + 1);
-            output[i++] = string;
+            strcpy(output[i++], string);
         }
     }
 
