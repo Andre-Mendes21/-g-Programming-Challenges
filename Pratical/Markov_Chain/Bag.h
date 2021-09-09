@@ -19,7 +19,6 @@ typedef struct bag_t
 
 /**
  * Create a new node to store the given item
- * 
 */
 BagNode *bag_node_create(void *item);
 
