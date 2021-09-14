@@ -25,6 +25,13 @@ Graph *graph_create(int num_vertices);
 Graph *graph_fill(FILE *input);
 
 /**
+ * Destroys a Graph
+ * 
+ * Frees the memory
+*/
+void graph_destroy(Graph *graph);
+
+/**
  *  @returns Number of vertices
 */
 int vertices(Graph *graph);

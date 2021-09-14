@@ -60,6 +60,17 @@ Graph *graph_fill(FILE *input)
     return graph;
 }
 
+void graph_destroy(Graph *graph)
+{
+    for(int i = 0; i < graph->num_vertices; i++)
+    {
+        bag_destroy(graph->adj[i]);
+    }
+
+    free(graph->adj);
+    free(graph);
+}
+
 int vertices(Graph *graph)
 {
     return graph->num_vertices;
