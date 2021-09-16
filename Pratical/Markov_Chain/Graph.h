@@ -7,7 +7,7 @@ typedef struct graph_t
 {
     int num_vertices;
     int num_edges;
-    Bag **adj;
+    Bag **adj; // array of Bags
 } Graph;
 
 /**
@@ -49,7 +49,7 @@ void add_edge(Graph *graph, int v1, int v2);
 /**
  * @returns The Adjanceny List of the Graph at position v
 */
-Bag *adj(Graph *graph, int v);
+Bag *graph_adj(Graph *graph, int v);
 
 /**
  * Prints a representation of the graph as an Adjacency List

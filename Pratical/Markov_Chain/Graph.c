@@ -101,12 +101,43 @@ void add_edge(Graph *graph, int v, int w)
     graph->num_edges++;
 }
 
-Bag *adj(Graph *graph, int v)
+Bag *graph_adj(Graph *graph, int v)
 {
     return graph->adj[v];
 }
 
 char **graph_print(Graph *graph)
 {
-    return NULL;
+    char **output;
+
+    if(graph == NULL)
+    {
+        return NULL;
+    }
+
+    else
+    {
+        char string[1024];
+        output = malloc(graph->num_vertices * sizeof(char *));
+
+        for(int i = 0; i < graph->num_vertices; i++)
+        {
+            Bag *adj = graph_adj(graph, i);
+            sprintf(string, "%d:", i);
+
+            for(int j = 0; j < adj->size; j++)
+            {
+                char *bag = bag_print(adj)[j];
+                char temp[2]; 
+                sprintf(temp, "%d", *(int *) bag);
+
+                strcat(string, " ");
+                strcat(string, temp);
+            }
+
+            output[i] = malloc(strlen(string + 1) * sizeof(char));
+            strcpy(output[i], string);
+        }
+    }
+    return output;
 }
