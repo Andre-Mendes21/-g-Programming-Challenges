@@ -41,7 +41,7 @@ void bag_destroy(Bag *bag)
 {
     BagNode *next_bag_node;
     bag->current = bag->head;
-    unsigned i = 1;
+
     while(bag->current != NULL)
     {
         next_bag_node = bag->current->next;
