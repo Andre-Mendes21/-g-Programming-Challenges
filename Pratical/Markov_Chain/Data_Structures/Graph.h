@@ -1,6 +1,8 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
+#include <stdio.h>
+
 #include "Bag.h"
 
 typedef struct graph_t
