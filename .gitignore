@@ -3,3 +3,4 @@
 *.o
 *.exe.stackdump
 *.txt
+*.a
