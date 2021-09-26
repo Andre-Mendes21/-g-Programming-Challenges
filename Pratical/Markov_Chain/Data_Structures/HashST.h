@@ -27,6 +27,8 @@ HashST *hashST_create(void);
 
 void hashST_destroy(HashST *st);
 
+bool hashST_contains(HashST *st, const char *key);
+
 int *hashST_get(HashST *st, const char *key);
 
 const char *hashST_put(HashST *st, const char *key, int *value);

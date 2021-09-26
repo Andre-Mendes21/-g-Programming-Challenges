@@ -91,6 +91,19 @@ static uint64_t double_hash(int p, const char *key)
     return 1 + (hash_code(key) % p);
 }
 
+bool hashST_contains(HashST *st, const char *key)
+{
+    uint64_t hash2 = double_hash(st->p, key);
+    for(int i = hash(st->capacity, key); st->entries[i].key != NULL; i = (i + hash2) % st->capacity)
+    {
+        if(strcmp(st->entries[i].key, key) && st->entries[i].value != NULL)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 int *hashST_get(HashST *st, const char *key)
 {
     uint64_t hash1 = hash(st->capacity, key);
