@@ -4,7 +4,7 @@
 
 #include "Bag.h"
 
-BagNode *bag_node_create(void *item)
+static BagNode *bag_node_create(void *item)
 {
     BagNode *node = malloc(sizeof(BagNode));
 
