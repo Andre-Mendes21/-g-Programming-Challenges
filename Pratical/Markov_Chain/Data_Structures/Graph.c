@@ -57,7 +57,7 @@ Graph *graph_fill(FILE *input)
         }
     }
 
-    return graf;
+    return graph;
 }
 
 void graph_destroy(Graph *graph)
